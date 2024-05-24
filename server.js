@@ -5,6 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const { v4: uuidv4 } = require("uuid"); // Import UUID for unique file names
 const admin = require("firebase-admin");
+const cors = require("cors"); // Import the cors middleware
 require("dotenv").config(); // Load environment variables from .env file
 
 const serviceAccountPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
@@ -19,6 +20,7 @@ const bucket = admin.storage().bucket();
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
+app.use(cors());
 
 app.use(express.static("public"));
 
