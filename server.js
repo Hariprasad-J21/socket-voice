@@ -19,7 +19,12 @@ const bucket = admin.storage().bucket();
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = socketIo(server, {
+  cors: {
+    origin: "*", // This allows all origins, you can specify a particular origin instead
+    methods: ["GET", "POST"],
+  },
+});
 app.use(cors());
 
 app.use(express.static("public"));
