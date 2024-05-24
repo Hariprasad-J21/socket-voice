@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Log files
+logs/
+*.log
+
+# Environment variables
+.env
+
+# Firebase service account key
+store-voice-firebase-adminsdk-4ps9i-470e2f5777
