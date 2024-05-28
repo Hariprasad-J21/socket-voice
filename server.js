@@ -39,7 +39,7 @@ io.on("connection", (socket) => {
   const clientId = uuidv4();
   const rawFilePath = path.join(__dirname, `audio_${clientId}.raw`);
 
-  socket.on("audio-chunk", (chunk) => {
+  socket.on("message", (chunk) => {
     // Create a write stream if it doesn't exist for this client
     if (!clientStreams[clientId]) {
       clientStreams[clientId] = fs.createWriteStream(rawFilePath, {
